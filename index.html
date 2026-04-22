@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneWash Pro | Limpeza de Fachadas com Drone — Segura, Rápida e Econômica</title>
+  <meta name="description" content="Reduza até 40% o custo de limpeza de fachada com tecnologia drone DJI Matrice + Dronewash. Sem andaime, sem risco humano. Orçamento gratuito em 24h para síndicos, administradoras e empresas." />
+  <meta name="keywords" content="limpeza fachada drone, lavagem fachada drone, limpeza predial drone, dronewash, fachada ACM, limpeza vidro prédio, síndico" />
+  <link rel="canonical" href="https://dronewashpro.com.br/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DroneWash Pro",
+    "description": "Limpeza de fachadas com drone DJI Matrice + sistema Dronewash. Sem andaime, sem risco humano.",
+    "url": "https://dronewashpro.com.br",
+    "telephone": "+55-11-99999-9999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:      #f97316;
+      --orange-dark: #ea6c0a;
+      --orange-light:#fff7ed;
+      --orange-pale: #ffedd5;
+      --navy:        #0f172a;
+      --slate:       #1e293b;
+      --gray-700:    #334155;
+      --gray-500:    #64748b;
+      --gray-300:    #cbd5e1;
+      --gray-100:    #f1f5f9;
+      --gray-50:     #f8fafc;
+      --white:       #ffffff;
+      --radius:      10px;
+      --radius-lg:   16px;
+      --radius-xl:   24px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+      --shadow:      0 4px 16px rgba(0,0,0,.08);
+      --shadow-lg:   0 10px 40px rgba(0,0,0,.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--slate);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: box-shadow .25s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--navy); text-decoration: none; letter-spacing: -0.4px;
+    }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 18px; height: 18px; fill: white; }
+    .logo span { color: var(--orange); }
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; color: var(--gray-700);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-ghost {
+      font-size: 0.88rem; font-weight: 600; color: var(--gray-700);
+      text-decoration: none; padding: 9px 18px; border-radius: var(--radius);
+      transition: background .2s, color .2s;
+    }
+    .btn-ghost:hover { background: var(--gray-100); color: var(--navy); }
+    .btn-orange {
+      font-size: 0.88rem; font-weight: 700; color: white;
+      background: var(--orange); text-decoration: none;
+      padding: 10px 20px; border-radius: var(--radius);
+      border: none; cursor: pointer; font-family: inherit;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(249,115,22,.35); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--slate); border-radius: 2px; display: block; transition: .3s; }
+
+    /* ─── HERO ─── */
+    #hero {
+      padding-top: 68px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 32px; padding-right: 32px;
+      gap: 60px;
+    }
+    .hero-left { padding: 80px 0; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange-pale); color: var(--orange-dark);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: .3px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--orange); border-radius: 50%;
+      animation: dot-pulse 1.5s infinite;
+    }
+    @keyframes dot-pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -1.5px;
+      color: var(--navy); margin-bottom: 20px;
+    }
+    h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub {
+      font-size: 1.08rem; color: var(--gray-500); line-height: 1.75;
+      margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 48px; }
+    .btn-primary-lg {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--orange); color: white;
+      padding: 15px 28px; border-radius: var(--radius);
+      font-weight: 700; font-size: 1rem; font-family: inherit;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(249,115,22,.3);
+    }
+    .btn-primary-lg:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(249,115,22,.4); }
+    .btn-outline-lg {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: white; color: var(--navy);
+      padding: 14px 24px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.97rem; font-family: inherit;
+      border: 1.5px solid var(--gray-300); cursor: pointer; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline-lg:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+    .hero-trust {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 0.83rem; color: var(--gray-500); font-weight: 500; }
+    .trust-item svg { width: 16px; height: 16px; fill: var(--orange); flex-shrink: 0; }
+    .hero-right {
+      position: relative; padding: 80px 0;
+    }
+    .hero-visual-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden; box-shadow: var(--shadow-lg);
+      background: var(--gray-100);
+      aspect-ratio: 5/4;
+      position: relative;
+    }
+    .hero-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f2d4a 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+    }
+    .drone-anim {
+      position: relative; width: 160px; height: 120px;
+    }
+    .drone-body {
+      width: 60px; height: 22px;
+      background: var(--orange); border-radius: 6px;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      box-shadow: 0 0 30px rgba(249,115,22,.5);
+      animation: hover-drone 2.5s ease-in-out infinite;
+    }
+    .drone-arm {
+      position: absolute; height: 3px; width: 50px;
+      background: #334155; border-radius: 2px;
+      top: 50%; transform-origin: center;
+    }
+    .drone-arm:nth-child(2) { left: 10px; transform: rotate(-35deg) translateY(-50%); }
+    .drone-arm:nth-child(3) { right: 10px; transform: rotate(35deg) translateY(-50%); }
+    .drone-arm:nth-child(4) { left: 10px; transform: rotate(35deg) translateY(-50%); }
+    .drone-arm:nth-child(5) { right: 10px; transform: rotate(-35deg) translateY(-50%); }
+    .drone-prop {
+      position: absolute; width: 24px; height: 6px;
+      background: rgba(255,255,255,0.3); border-radius: 3px;
+      animation: spin 0.4s linear infinite;
+    }
+    .drone-prop:nth-child(6) { top: 12px; left: 8px; }
+    .drone-prop:nth-child(7) { top: 12px; right: 8px; }
+    .drone-prop:nth-child(8) { bottom: 12px; left: 8px; }
+    .drone-prop:nth-child(9) { bottom: 12px; right: 8px; }
+    @keyframes hover-drone { 0%,100%{transform:translate(-50%,-50%) translateY(0)} 50%{transform:translate(-50%,-50%) translateY(-8px)} }
+    @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .water-spray {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+    }
+    .spray-drop {
+      width: 3px; height: 20px;
+      background: linear-gradient(to bottom, rgba(147,210,255,.8), transparent);
+      border-radius: 2px; animation: spray 1.2s ease-in-out infinite;
+    }
+    .spray-drop:nth-child(2){animation-delay:.15s}
+    .spray-drop:nth-child(3){animation-delay:.3s}
+    .spray-drop:nth-child(4){animation-delay:.45s}
+    .spray-drop:nth-child(5){animation-delay:.6s}
+    @keyframes spray { 0%,100%{opacity:0;transform:scaleY(0.3)} 50%{opacity:1;transform:scaleY(1)} }
+    .building-silhouette {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to top, #1a3a5c, transparent);
+    }
+    .hero-badge-float {
+      position: absolute; bottom: -18px; left: -24px;
+      background: white; border-radius: var(--radius);
+      padding: 16px 20px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 12px;
+      min-width: 200px;
+    }
+    .badge-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .badge-icon svg { width: 20px; height: 20px; fill: var(--orange); }
+    .badge-num { font-size: 1.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .badge-label { font-size: 0.75rem; color: var(--gray-500); }
+    .hero-badge-float-2 {
+      position: absolute; top: 20px; right: -20px;
+      background: var(--navy); border-radius: var(--radius);
+      padding: 12px 16px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 10px;
+      color: white;
+    }
+    .badge2-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.25); animation: dot-pulse 2s infinite; }
+    .badge2-text { font-size: 0.8rem; font-weight: 600; }
+
+    /* ─── STATS STRIP ─── */
+    #stats {
+      background: var(--navy);
+      padding: 0;
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      padding: 0 32px;
+    }
+    .stat-item {
+      padding: 44px 32px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 2.6rem; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -1px; }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,.55); margin-top: 6px; font-weight: 500; }
+
+    /* ─── SECTION COMMONS ─── */
+    .section { padding: 96px 32px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: .5px;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .eyebrow::before { content: '—'; margin-right: 2px; }
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; letter-spacing: -0.8px; line-height: 1.18;
+      color: var(--navy); margin-bottom: 14px;
+    }
+    h2 em { color: var(--orange); font-style: normal; }
+    .section-desc { font-size: 1.02rem; color: var(--gray-500); line-height: 1.75; max-width: 540px; }
+    .section-header.center .section-desc { margin: 0 auto; }
+    .alt-bg { background: var(--gray-50); }
+
+    /* ─── RESULTS / BULLETS ─── */
+    .results-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 24px;
+    }
+    .result-card {
+      background: white; border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg); padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .25s, transform .2s;
+    }
+    .result-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .result-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--orange-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .result-icon svg { width: 22px; height: 22px; fill: var(--orange); }
+    .result-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .result-text { font-size: 0.9rem; color: var(--gray-500); line-height: 1.65; }
+    .result-highlight { font-size: 1.8rem; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 4px; }
+
+    /* ─── BEFORE/AFTER ─── */
+    .ba-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 32px; margin-top: 56px; align-items: center;
+    }
+    .ba-cards { display: flex; flex-direction: column; gap: 20px; }
+    .ba-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--gray-100); box-shadow: var(--shadow);
+    }
+    .ba-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px; border-bottom: 1px solid var(--gray-100);
+      background: white;
+    }
+    .ba-tag {
+      font-size: 0.78rem; font-weight: 700; padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .ba-tag.before { background: #fee2e2; color: #dc2626; }
+    .ba-tag.after  { background: #dcfce7; color: #16a34a; }
+    .ba-visual {
+      width: 100%; height: 160px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ba-visual.dirty { background: linear-gradient(135deg,#2d2010,#3d2d10,#251a0a); }
+    .ba-visual.clean { background: linear-gradient(135deg,#e0f2fe,#bfdbfe,#dbeafe); }
+    .ba-info { padding: 14px 18px; background: white; }
+    .ba-info p { font-size: 0.83rem; color: var(--gray-500); }
+    .ba-info strong { color: var(--navy); }
+    .ba-right { }
+    .ba-right h3 { font-size: 1.5rem; font-weight: 800; color: var(--navy); letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.3; }
+    .ba-bullets { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .ba-bullets li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.95rem; color: var(--gray-700);
+    }
+    .ba-bullets li::before {
+      content: '';
+      flex-shrink: 0; width: 20px; height: 20px;
+      background: var(--orange-pale); border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f97316'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: 13px; background-repeat: no-repeat; background-position: center;
+      margin-top: 2px;
+    }
+
+    /* ─── COMO FUNCIONA ─── */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 0; position: relative; margin-top: 20px;
+    }
+    .step-connector {
+      position: absolute; top: 32px; left: calc(100%/6); right: calc(100%/6); height: 1px;
+      background: repeating-linear-gradient(90deg, var(--orange) 0, var(--orange) 8px, transparent 8px, transparent 16px);
+      z-index: 0;
+    }
+    .step { padding: 0 32px; text-align: center; position: relative; z-index: 1; }
+    .step-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--orange); color: white;
+      font-size: 1.4rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 0 8px white, 0 0 0 9px var(--gray-100);
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .step p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.7; }
+
+    /* ─── SERVIÇOS ─── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: white; border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .25s, transform .2s, border-color .2s;
+      position: relative; overflow: hidden;
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--orange); }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--orange); transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--orange-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 26px; height: 26px; fill: var(--orange); }
+    .service-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .service-desc { font-size: 0.9rem; color: var(--gray-500); line-height: 1.65; }
+    .service-tag {
+      display: inline-block; margin-top: 16px;
+      background: var(--orange-pale); color: var(--orange-dark);
+      padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 700;
+    }
+
+    /* ─── DIFERENCIAIS ─── */
+    .diff-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .diff-visual {
+      border-radius: var(--radius-xl); overflow: hidden;
+      background: var(--navy); aspect-ratio: 1/1;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-lg); position: relative;
+    }
+    .diff-visual-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; padding: 32px;
+    }
+    .diff-mini {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 20px 16px; text-align: center;
+      transition: background .2s;
+    }
+    .diff-mini:hover { background: rgba(249,115,22,.12); border-color: rgba(249,115,22,.35); }
+    .diff-mini-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .diff-mini-title { font-size: 0.78rem; color: rgba(255,255,255,.7); font-weight: 600; }
+    .diff-list { display: flex; flex-direction: column; gap: 22px; }
+    .diff-item { display: flex; gap: 16px; align-items: flex-start; }
+    .diff-check {
+      flex-shrink: 0; width: 38px; height: 38px;
+      background: var(--orange-pale); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .diff-check svg { width: 18px; height: 18px; fill: var(--orange); }
+    .diff-title { font-size: 0.97rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .diff-text { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ─── DEPOIMENTOS ─── */
+    .dep-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 24px;
+    }
+    .dep-card {
+      background: white; border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg); padding: 32px 28px;
+      box-shadow: var(--shadow-sm); position: relative;
+      transition: box-shadow .25s, transform .2s;
+    }
+    .dep-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .dep-stars { color: var(--orange); font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 18px; }
+    .dep-quote-mark {
+      font-size: 4rem; line-height: 1; font-family: Georgia, serif;
+      color: var(--orange-pale); position: absolute; top: 20px; right: 24px;
+    }
+    .dep-text { font-size: 0.95rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 24px; }
+    .dep-divider { height: 1px; background: var(--gray-100); margin-bottom: 20px; }
+    .dep-author { display: flex; align-items: center; gap: 14px; }
+    .dep-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: white; flex-shrink: 0;
+    }
+    .dep-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+    .dep-role { font-size: 0.8rem; color: var(--gray-500); }
+
+    /* ─── OFERTA / CTA SECTION ─── */
+    #oferta {
+      background: var(--navy);
+      padding: 96px 32px;
+    }
+    .oferta-inner {
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    #oferta h2 { color: white; }
+    #oferta .section-desc { color: rgba(255,255,255,.6); margin: 0 auto 48px; }
+    .oferta-cards {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-bottom: 48px;
+    }
+    .oferta-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-lg); padding: 28px 20px; text-align: center;
+      transition: background .2s, border-color .2s;
+    }
+    .oferta-card:hover { background: rgba(249,115,22,.1); border-color: rgba(249,115,22,.35); }
+    .oferta-card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .oferta-card-title { font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 6px; }
+    .oferta-card-desc { font-size: 0.82rem; color: rgba(255,255,255,.5); }
+
+    /* ─── FORMULÁRIO ─── */
+    .form-wrapper {
+      display: grid; grid-template-columns: 1fr 1.3fr;
+      gap: 72px; align-items: start;
+    }
+    .form-left {}
+    .form-left h2 { margin-bottom: 16px; }
+    .form-left .section-desc { margin-bottom: 36px; }
+    .form-promises { display: flex; flex-direction: column; gap: 14px; }
+    .fp-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.9rem; color: var(--gray-700); font-weight: 500;
+    }
+    .fp-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--orange); flex-shrink: 0;
+    }
+    .form-card {
+      background: white; border: 1px solid var(--gray-100);
+      border-radius: var(--radius-xl); padding: 44px 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .form-subtitle { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--slate); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--gray-50); border: 1.5px solid var(--gray-300);
+      color: var(--slate); padding: 11px 14px; border-radius: var(--radius);
+      font-size: 0.93rem; font-family: inherit; outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange); background: white;
+      box-shadow: 0 0 0 3px rgba(249,115,22,.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #aaa; }
+    .form-group textarea { resize: vertical; min-height: 88px; }
+    .form-group select { color: var(--slate); }
+    .btn-submit-full {
+      width: 100%; padding: 15px;
+      background: var(--orange); color: white; border: none;
+      border-radius: var(--radius); cursor: pointer;
+      font-size: 1rem; font-weight: 700; font-family: inherit;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(249,115,22,.3);
+      margin-top: 6px;
+    }
+    .btn-submit-full:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,.4); }
+    .form-note { text-align: center; font-size: 0.78rem; color: var(--gray-500); margin-top: 12px; }
+    .success-msg {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .success-check {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: #dcfce7; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .success-check svg { width: 32px; height: 32px; fill: #16a34a; }
+    .success-msg h3 { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .success-msg p { font-size: 0.92rem; color: var(--gray-500); }
+
+    /* ─── FAQ ─── */
+    .faq-container { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--gray-100); border-radius: var(--radius);
+      margin-bottom: 10px; overflow: hidden;
+      background: white; transition: border-color .2s;
+    }
+    .faq-item.open { border-color: var(--orange); }
+    .faq-btn {
+      width: 100%; background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 0.97rem; font-weight: 600;
+      color: var(--navy); padding: 20px 24px;
+      text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-btn:hover { color: var(--orange); }
+    .faq-icon {
+      flex-shrink: 0; width: 24px; height: 24px;
+      background: var(--gray-100); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .3s;
+    }
+    .faq-icon svg { width: 12px; height: 12px; fill: var(--gray-500); transition: fill .2s; }
+    .faq-item.open .faq-icon { background: var(--orange-pale); transform: rotate(45deg); }
+    .faq-item.open .faq-icon svg { fill: var(--orange); }
+    .faq-answer {
+      display: none; padding: 0 24px 20px;
+      font-size: 0.92rem; color: var(--gray-500); line-height: 1.75;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ─── CTA FINAL ─── */
+    #cta-final {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      padding: 96px 32px; text-align: center;
+    }
+    #cta-final h2 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+    #cta-final p { color: rgba(255,255,255,.8); font-size: 1.08rem; margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: var(--orange);
+      padding: 16px 32px; border-radius: var(--radius);
+      font-weight: 800; font-size: 1.02rem; font-family: inherit;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy); padding: 56px 32px 36px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .footer-brand .logo { color: white; margin-bottom: 14px; }
+    .footer-brand p { font-size: 0.87rem; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: white; margin-bottom: 16px; letter-spacing: .3px; text-transform: uppercase; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.87rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,.3); }
+    .footer-badges { display: flex; gap: 12px; }
+    .f-badge {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px; padding: 5px 10px;
+      font-size: 0.75rem; color: rgba(255,255,255,.45); font-weight: 600;
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-btn {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+    .wa-btn svg { width: 28px; height: 28px; fill: white; }
+    .wa-tooltip {
+      position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
+      background: var(--navy); color: white; border-radius: 8px;
+      padding: 7px 13px; font-size: 0.8rem; font-weight: 600;
+      white-space: nowrap; opacity: 0; pointer-events: none;
+      transition: opacity .2s;
+    }
+    .wa-btn:hover .wa-tooltip { opacity: 1; }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-right { display: none; }
+      .diff-split { grid-template-columns: 1fr; }
+      .diff-visual { display: none; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .stat-item:nth-child(even) { border-bottom: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .btn-ghost { display: none; }
+      .hamburger { display: flex; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .step-connector { display: none; }
+      .ba-section { grid-template-columns: 1fr; }
+      .form-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .oferta-cards { grid-template-columns: 1fr; }
+      .section { padding: 68px 20px; }
+      nav .nav-inner { padding: 0 20px; }
+      .form-card { padding: 28px 22px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 480px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .dep-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2L8 6H4l2 4-4 2 4 2-2 4h4l4 4 4-4h4l-2-4 4-2-4-2 2-4h-4L12 2z"/></svg>
+      </div>
+      Drone<span>Wash</span>&nbsp;Pro
+    </a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#depoimentos">Clientes</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+5511999999999" class="btn-ghost">📞 (11) 99999-9999</a>
+      <a href="#formulario" class="btn-orange">Solicitar Orçamento</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Tecnologia DJI Matrice + Dronewash</div>
+    <h1>Limpeza de fachadas<br/><em>sem andaime.</em><br/>Sem risco. Mais rápido.</h1>
+    <p class="hero-sub">
+      Reduzimos o custo operacional de limpeza em até 40% com drones industriais de última geração. Seguro, rápido e sem nenhum trabalhador em altura.
+    </p>
+    <div class="hero-ctas">
+      <a href="#formulario" class="btn-primary-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Orçamento gratuito em 24h
+      </a>
+      <a href="#como-funciona" class="btn-outline-lg">Ver como funciona →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Piloto certificado ANAC
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Seguro RC incluso
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        +300 fachadas limpas
+      </div>
+    </div>
+  </div>
+  <div class="hero-right reveal d1">
+    <div class="hero-visual-card">
+      <div class="hero-img-placeholder">
+        <div class="drone-anim">
+          <div class="drone-arm"></div>
+          <div class="drone-arm"></div>
+          <div class="drone-arm"></div>
+          <div class="drone-arm"></div>
+          <div class="drone-body"></div>
+          <div class="drone-prop"></div>
+          <div class="drone-prop"></div>
+          <div class="drone-prop"></div>
+          <div class="drone-prop"></div>
+        </div>
+        <div class="water-spray">
+          <div class="spray-drop"></div><div class="spray-drop"></div>
+          <div class="spray-drop"></div><div class="spray-drop"></div><div class="spray-drop"></div>
+        </div>
+        <div class="building-silhouette"></div>
+      </div>
+    </div>
+    <div class="hero-badge-float">
+      <div class="badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div>
+        <div class="badge-num">70%</div>
+        <div class="badge-label">mais rápido que andaime</div>
+      </div>
+    </div>
+    <div class="hero-badge-float-2">
+      <div class="badge2-dot"></div>
+      <div class="badge2-text">Operação em andamento</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">70%</div>
+      <div class="stat-label">Mais rápido que métodos tradicionais</div>
+    </div>
+    <div class="stat-item reveal d1">
+      <div class="stat-num">40%</div>
+      <div class="stat-label">Redução média de custo operacional</div>
+    </div>
+    <div class="stat-item reveal d2">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Fachadas limpas com sucesso</div>
+    </div>
+    <div class="stat-item reveal d3">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Acidentes registrados em operações</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTADOS / ANTES E DEPOIS -->
+<section id="resultados" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Resultados comprovados</div>
+      <h2>A diferença que a <em>tecnologia faz</em></h2>
+      <p class="section-desc">Comparação direta entre o estado da fachada antes e após a aplicação do sistema Dronewash.</p>
+    </div>
+    <div class="ba-section">
+      <div class="ba-cards">
+        <div class="ba-card reveal">
+          <div class="ba-header">
+            <span style="font-size:.82rem;font-weight:600;color:var(--gray-500)">Edifício Comercial — Av. Paulista</span>
+            <span class="ba-tag before">Antes</span>
+          </div>
+          <div class="ba-visual dirty">
+            <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
+              <rect x="10" y="5" width="30" height="22" rx="3" fill="#4a3010" opacity=".8"/>
+              <rect x="50" y="5" width="30" height="22" rx="3" fill="#4a3010" opacity=".6"/>
+              <rect x="10" y="35" width="30" height="22" rx="3" fill="#4a3010" opacity=".9"/>
+              <rect x="50" y="35" width="30" height="22" rx="3" fill="#4a3010" opacity=".7"/>
+              <text x="50" y="72" text-anchor="middle" font-size="9" fill="#9a7a4a" font-family="sans-serif">Mofo e sujidade acumulada</text>
+            </svg>
+          </div>
+          <div class="ba-info"><p><strong>Problema:</strong> 4 anos sem limpeza profunda, pastilhas escurecidas por mofo e eflorescência.</p></div>
+        </div>
+        <div class="ba-card reveal d1">
+          <div class="ba-header">
+            <span style="font-size:.82rem;font-weight:600;color:var(--gray-500)">Edifício Comercial — Av. Paulista</span>
+            <span class="ba-tag after">Depois</span>
+          </div>
+          <div class="ba-visual clean">
+            <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
+              <rect x="10" y="5" width="30" height="22" rx="3" fill="#3b82f6" opacity=".6"/>
+              <rect x="50" y="5" width="30" height="22" rx="3" fill="#3b82f6" opacity=".6"/>
+              <rect x="10" y="35" width="30" height="22" rx="3" fill="#3b82f6" opacity=".6"/>
+              <rect x="50" y="35" width="30" height="22" rx="3" fill="#3b82f6" opacity=".6"/>
+              <path d="M20 16 L27 23 L42 9" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <text x="50" y="72" text-anchor="middle" font-size="9" fill="#2563eb" font-family="sans-serif">Fachada restaurada — 6 horas</text>
+            </svg>
+          </div>
+          <div class="ba-info"><p><strong>Resultado:</strong> Limpeza completa em 6 horas. Custo 38% menor que o orçamento de andaime.</p></div>
+        </div>
+      </div>
+      <div class="ba-right reveal d2">
+        <h3>Por que síndicos e administradoras estão trocando andaimes por drones</h3>
+        <ul class="ba-bullets">
+          <li>Até 70% mais rápido — fachadas de 20 andares limpas em um dia de trabalho</li>
+          <li>Zero risco de acidente para funcionários ou moradores durante a operação</li>
+          <li>Sem tapumes, sem bloqueio de vias, sem interrupção de elevadores</li>
+          <li>Custo operacional menor — sem montagem de estrutura ou equipe de rapel</li>
+          <li>Relatório fotográfico completo entregue ao final de cada serviço</li>
+          <li>Seguro de responsabilidade civil incluso em todas as operações</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="section alt-bg">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="eyebrow">Processo simplificado</div>
+      <h2>Como funciona em <em>3 etapas</em></h2>
+      <p class="section-desc">Do primeiro contato ao resultado final, o processo é direto e sem burocracia.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-connector"></div>
+      <div class="step reveal">
+        <div class="step-circle">1</div>
+        <h3>Análise e Orçamento</h3>
+        <p>Você envia o endereço ou link do Google Maps. Nossa equipe faz a análise técnica e retorna com orçamento detalhado em até 24 horas, sem visita obrigatória.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-circle">2</div>
+        <h3>Execução com Drone</h3>
+        <p>Nosso piloto certificado ANAC opera o DJI Matrice com sistema Dronewash de alta pressão. Operação silenciosa, sem interrupção do condomínio ou bloqueio de vias.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-circle">3</div>
+        <h3>Entrega e Documentação</h3>
+        <p>Fachada limpa e documentada com fotos antes e depois em alta resolução. Relatório técnico entregue para registros da administradora ou assembleia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">O que oferecemos</div>
+      <h2>Soluções completas para <em>qualquer fachada</em></h2>
+      <p class="section-desc">Cobertura para residencial, comercial e industrial, em qualquer tipo de revestimento.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9zm0-4h18v4H3V5zm5 8H6v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+        </div>
+        <div class="service-title">Limpeza de Vidros</div>
+        <p class="service-desc">Torres corporativas, fachadas envidraçadas e cortinas de vidro. Resultado cristalino sem risco de arranhão ou quebra.</p>
+        <span class="service-tag">Alta demanda</span>
+      </div>
+      <div class="service-card reveal d1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+        </div>
+        <div class="service-title">Fachada ACM</div>
+        <p class="service-desc">Alumínio composto e revestimentos metálicos recuperados com produtos específicos e pressão calibrada. Sem dano ao acabamento.</p>
+        <span class="service-tag">Especialidade</span>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h16v2H4v-2zm0 4h16v2H4v-2z"/></svg>
+        </div>
+        <div class="service-title">Limpeza de Pastilhas</div>
+        <p class="service-desc">Remoção de mofo, fungos e eflorescência em pastilhas cerâmicas e porcelanato. Restaura cor original e impermeabilização.</p>
+        <span class="service-tag">Residencial e comercial</span>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+        </div>
+        <div class="service-title">Pintura com Drone</div>
+        <p class="service-desc">Aplicação de tinta ou primer em fachadas de difícil acesso com sistema de spray acoplado. Cobertura uniforme e sem gotejamento.</p>
+        <span class="service-tag">Serviço premium</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" class="section alt-bg">
+  <div class="section-inner">
+    <div class="diff-split">
+      <div>
+        <div class="eyebrow">Por que a DroneWash Pro</div>
+        <h2 style="margin-bottom:40px">O que nos separa de qualquer outra empresa de limpeza</h2>
+        <div class="diff-list">
+          <div class="diff-item reveal">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div>
+              <div class="diff-title">DJI Matrice + Sistema Dronewash</div>
+              <div class="diff-text">Operamos com o mais avançado equipamento disponível: drone industrial DJI Matrice combinado ao sistema Dronewash de lavagem de alta pressão.</div>
+            </div>
+          </div>
+          <div class="diff-item reveal d1">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div>
+              <div class="diff-title">Pilotos Certificados ANAC</div>
+              <div class="diff-text">Toda operação é conduzida por pilotos habilitados com certificação ANAC e treinamento específico para voos urbanos em áreas densas.</div>
+            </div>
+          </div>
+          <div class="diff-item reveal d2">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div>
+              <div class="diff-title">Seguro de Responsabilidade Civil Incluso</div>
+              <div class="diff-text">Nenhum custo adicional com seguro. Cada operação é totalmente coberta. Você contrata sem nenhum risco jurídico ou financeiro para o condomínio.</div>
+            </div>
+          </div>
+          <div class="diff-item reveal d3">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div>
+              <div class="diff-title">Operação Sem Interrupção do Prédio</div>
+              <div class="diff-text">Sem bloquear vias, sem tapumes, sem interromper elevadores. Moradores e funcionários seguem suas rotinas normalmente durante toda a operação.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="diff-visual reveal d2">
+        <div class="diff-visual-inner">
+          <div class="diff-mini"><div class="diff-mini-icon">🛸</div><div class="diff-mini-title">DJI Matrice</div></div>
+          <div class="diff-mini"><div class="diff-mini-icon">🛡️</div><div class="diff-mini-title">Seguro Incluso</div></div>
+          <div class="diff-mini"><div class="diff-mini-icon">⚡</div><div class="diff-mini-title">70% + Rápido</div></div>
+          <div class="diff-mini"><div class="diff-mini-icon">📋</div><div class="diff-mini-title">Certificado ANAC</div></div>
+          <div class="diff-mini"><div class="diff-mini-icon">💧</div><div class="diff-mini-title">Alta Pressão</div></div>
+          <div class="diff-mini"><div class="diff-mini-icon">📸</div><div class="diff-mini-title">Relatório Fotos</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" class="section">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="eyebrow">O que nossos clientes dizem</div>
+      <h2>Resultados que <em>falam por si</em></h2>
+      <p class="section-desc">Síndicos, administradoras e empresários que pararam de usar andaimes.</p>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">A agilidade foi impressionante. Tínhamos orçamento de andaime para 8 dias de trabalho. A DroneWash Pro concluiu tudo em um dia. Custo menor, sem transtorno para os moradores e documentação completa para a ata da assembleia.</p>
+        <div class="dep-divider"></div>
+        <div class="dep-author">
+          <div class="dep-avatar">RC</div>
+          <div>
+            <div class="dep-name">Roberto Carvalho</div>
+            <div class="dep-role">Síndico · Condomínio Torres do Bosque, SP</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal d1">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">Gerenciamos 43 condomínios e tornamos a DroneWash Pro nosso fornecedor padrão de limpeza de fachada. Economia média de 38%, zero registros de incidente e moradores satisfeitos. Não existe razão para continuar com andaime.</p>
+        <div class="dep-divider"></div>
+        <div class="dep-author">
+          <div class="dep-avatar">AS</div>
+          <div>
+            <div class="dep-name">Amanda Souza</div>
+            <div class="dep-role">Diretora Operacional · Gestora Predial Horizonte</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card reveal d2">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">Nosso edifício comercial tinha pastilhas escurecidas há anos. O orçamento de andaime era inviável. A DroneWash fez em 6 horas por menos da metade do valor. A fachada ficou melhor do que quando o prédio foi entregue pela construtora.</p>
+        <div class="dep-divider"></div>
+        <div class="dep-author">
+          <div class="dep-avatar">FM</div>
+          <div>
+            <div class="dep-name">Felipe Martins</div>
+            <div class="dep-role">Proprietário · Edifício Comercial Center Norte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="oferta-inner">
+    <div class="eyebrow" style="justify-content:center;color:rgba(255,255,255,.5)">Sem taxas ocultas</div>
+    <h2 style="margin-bottom:16px">Tudo incluso no seu orçamento</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,.55);margin:0 auto 48px">Orçamento claro, detalhado e sem surpresas. Entregue em até 24 horas após o contato.</p>
+    <div class="oferta-cards reveal">
+      <div class="oferta-card">
+        <div class="oferta-card-icon">🆓</div>
+        <div class="oferta-card-title">Orçamento Gratuito</div>
+        <div class="oferta-card-desc">Sem custo, sem compromisso. Resposta em até 24h.</div>
+      </div>
+      <div class="oferta-card">
+        <div class="oferta-card-icon">🛡️</div>
+        <div class="oferta-card-title">Seguro RC Incluso</div>
+        <div class="oferta-card-desc">Cobertura total em cada operação realizada.</div>
+      </div>
+      <div class="oferta-card">
+        <div class="oferta-card-icon">📸</div>
+        <div class="oferta-card-title">Relatório Fotográfico</div>
+        <div class="oferta-card-desc">Fotos antes e depois em alta resolução.</div>
+      </div>
+      <div class="oferta-card">
+        <div class="oferta-card-icon">🔧</div>
+        <div class="oferta-card-title">Visita Técnica</div>
+        <div class="oferta-card-desc">Opcional e gratuita para projetos maiores.</div>
+      </div>
+      <div class="oferta-card">
+        <div class="oferta-card-icon">📅</div>
+        <div class="oferta-card-title">Contratos Recorrentes</div>
+        <div class="oferta-card-desc">Desconto especial para manutenção periódica.</div>
+      </div>
+      <div class="oferta-card">
+        <div class="oferta-card-icon">✅</div>
+        <div class="oferta-card-title">Certificação ANAC</div>
+        <div class="oferta-card-desc">Operação 100% regularizada e documentada.</div>
+      </div>
+    </div>
+    <a href="#formulario" class="btn-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      Solicitar orçamento gratuito
+    </a>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="formulario" class="section">
+  <div class="section-inner">
+    <div class="form-wrapper">
+      <div class="form-left reveal">
+        <div class="eyebrow">Contato</div>
+        <h2>Solicite seu <em>orçamento</em> agora</h2>
+        <p class="section-desc">Preencha o formulário ao lado. Nossa equipe analisa o seu imóvel e retorna com orçamento detalhado em até 24 horas, sem compromisso.</p>
+        <div class="form-promises">
+          <div class="fp-item"><div class="fp-dot"></div>Nenhum spam. Só o orçamento que você pediu.</div>
+          <div class="fp-item"><div class="fp-dot"></div>Atendimento direto via WhatsApp disponível.</div>
+          <div class="fp-item"><div class="fp-dot"></div>Visita técnica gratuita quando necessário.</div>
+          <div class="fp-item"><div class="fp-dot"></div>Sem fidelidade mínima obrigatória.</div>
+          <div class="fp-item"><div class="fp-dot"></div>Resposta garantida em até 24 horas úteis.</div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <div class="form-card">
+          <div class="form-title">Solicitar Orçamento</div>
+          <div class="form-subtitle">Preencha os campos abaixo e entraremos em contato.</div>
+          <form id="orcamento-form" novalidate>
+            <div id="form-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome completo *</label>
+                  <input type="text" id="nome" placeholder="Seu nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="telefone">WhatsApp *</label>
+                  <input type="tel" id="telefone" placeholder="(11) 99999-9999" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" placeholder="seu@email.com.br" required />
+              </div>
+              <div class="form-group">
+                <label for="endereco">Endereço ou link Google Maps *</label>
+                <input type="text" id="endereco" placeholder="Rua e número, ou cole o link do Maps" required />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="metragem">Metragem aproximada</label>
+                  <input type="text" id="metragem" placeholder="Ex: 800 m²" />
+                </div>
+                <div class="form-group">
+                  <label for="servico">Tipo de serviço *</label>
+                  <select id="servico" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="vidro">Limpeza de Vidros</option>
+                    <option value="acm">Fachada ACM</option>
+                    <option value="pastilha">Limpeza de Pastilhas</option>
+                    <option value="pintura">Pintura com Drone</option>
+                    <option value="outro">Outro / Não sei</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="obs">Informações adicionais</label>
+                <textarea id="obs" placeholder="Andares, tipo de sujidade, urgência ou observações..."></textarea>
+              </div>
+              <button type="submit" class="btn-submit-full" id="submit-btn">
+                Enviar solicitação de orçamento →
+              </button>
+              <p class="form-note">🔒 Seus dados são protegidos e não serão compartilhados com terceiros.</p>
+            </div>
+            <div class="success-msg" id="success-msg">
+              <div class="success-check">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              </div>
+              <h3>Solicitação enviada com sucesso!</h3>
+              <p>Nossa equipe vai entrar em contato via WhatsApp em até 24 horas. Fique de olho no seu celular!</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section alt-bg">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Dúvidas que todo <em>síndico tem</em></h2>
+    </div>
+    <div class="faq-container">
+      <div class="faq-item reveal">
+        <button class="faq-btn">
+          Funciona em qualquer tipo de prédio ou edifício?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">Sim. O sistema Dronewash opera em praticamente qualquer tipo de fachada: prédios residenciais, comerciais, torres corporativas, hospitais e galpões industriais. O drone trabalha em áreas urbanas densas com segurança total. Para prédios em zonas com restrição de espaço aéreo, realizamos a análise prévia e providenciamos todas as autorizações necessárias.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-btn">
+          A operação com drone é realmente segura?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">O DJI Matrice possui múltiplos sistemas de segurança redundantes: GPS de alta precisão, barômetro, sensores de obstáculos em todas as direções e retorno automático em caso de falha de comunicação ou bateria baixa. Todos os pilotos são certificados pela ANAC conforme o RBAC-E94. Cada operação é coberta por seguro de responsabilidade civil. Em mais de 300 operações realizadas, registramos zero acidentes.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-btn">
+          É necessário parar o prédio ou evacuar moradores?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">Não. Essa é uma das principais vantagens do serviço. A operação não exige bloqueio de vias, remoção de tapumes, interrupção de elevadores ou evacuação de moradores. Em condomínios residenciais, sinalizamos apenas a área de pouso e decolagem no térreo. A rotina do prédio segue normalmente durante toda a execução.</div>
+      </div>
+      <div class="faq-item reveal d3">
+        <button class="faq-btn">
+          Qual é o custo comparado ao andaime tradicional?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">O valor varia conforme tipo de fachada, metragem e serviço. Na média, nossos clientes economizam entre 30% e 45% em relação ao andaime convencional — sem considerar a economia indireta com prazo reduzido, custo de seguro e transtorno operacional. Solicite seu orçamento gratuito e compare com o que você tem em mãos.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-btn">
+          Em quanto tempo o serviço é concluído?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">Como referência: um edifício de 20 andares com fachada de vidro é concluído em 6 a 8 horas de operação. O mesmo trabalho com andaime levaria de 5 a 10 dias. Após aprovação do orçamento, conseguimos agenda em até 5 dias úteis na maioria das regiões atendidas.</div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-btn">
+          Qual é a área de atuação da DroneWash Pro?
+          <div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+        </button>
+        <div class="faq-answer">Atendemos toda a Grande São Paulo, ABC Paulista, Campinas, Baixada Santista e interior do estado. Para outras regiões, consulte disponibilidade — nos deslocamos para projetos de maior porte em todo o território nacional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <h2>Pare de gastar com andaimes.<br/>Use tecnologia.</h2>
+  <p>Orçamento gratuito em 24h. Resultado em horas. Risco zero para o seu condomínio.</p>
+  <a href="#formulario" class="btn-white">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+    Solicitar orçamento gratuito
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="color:white;margin-bottom:14px;display:inline-flex">
+          <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L8 6H4l2 4-4 2 4 2-2 4h4l4 4 4-4h4l-2-4 4-2-4-2 2-4h-4L12 2z"/></svg></div>
+          Drone<span>Wash</span>&nbsp;Pro
+        </a>
+        <p>Limpeza de fachadas com tecnologia drone. Segura, rápida e econômica para condomínios, administradoras e empresas em São Paulo e região.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Limpeza de Vidros</a></li>
+          <li><a href="#servicos">Fachada ACM</a></li>
+          <li><a href="#servicos">Limpeza de Pastilhas</a></li>
+          <li><a href="#servicos">Pintura com Drone</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#depoimentos">Clientes</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#formulario">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+          <li><a href="mailto:contato@dronewashpro.com.br">contato@dronewashpro.com.br</a></li>
+          <li><a href="#formulario">Solicitar orçamento</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DroneWash Pro · CNPJ 00.000.000/0001-00 · São Paulo, SP</p>
+      <div class="footer-badges">
+        <span class="f-badge">ANAC Certificado</span>
+        <span class="f-badge">Seguro RC</span>
+        <span class="f-badge">DJI Partner</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20fachada%20com%20drone." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <div class="wa-tooltip">Falar no WhatsApp</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+
+  // Navbar scroll shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  ham.addEventListener('click', () => {
+    const visible = menu.style.display === 'flex';
+    menu.style.cssText = visible ? '' :
+      'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:white;padding:20px 20px;border-bottom:1px solid #f1f5f9;box-shadow:0 4px 16px rgba(0,0,0,.08);gap:14px;z-index:99';
+  });
+
+  // Phone mask
+  document.getElementById('telefone').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length <= 10) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3');
+    else                v = v.replace(/(\d{2})(\d{5})(\d{0,4})/,'($1) $2-$3');
+    this.value = v.replace(/-$/,'');
+  });
+
+  // Form submit
+  document.getElementById('orcamento-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn  = document.getElementById('submit-btn');
+    const body = document.getElementById('form-body');
+    const succ = document.getElementById('success-msg');
+
+    const required = ['nome','telefone','email','endereco','servico'];
+    let valid = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      const ok = el.value.trim();
+      el.style.borderColor = ok ? '' : '#ef4444';
+      if (!ok) valid = false;
+    });
+    if (!valid) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    await new Promise(r => setTimeout(r, 1600));
+
+    const payload = {
+      nome:     document.getElementById('nome').value,
+      telefone: document.getElementById('telefone').value,
+      email:    document.getElementById('email').value,
+      endereco: document.getElementById('endereco').value,
+      metragem: document.getElementById('metragem').value,
+      servico:  document.getElementById('servico').value,
+      obs:      document.getElementById('obs').value,
+      ts:       new Date().toISOString(),
+    };
+    console.log('[DroneWash Pro] Lead:', payload);
+
+    body.style.display = 'none';
+    succ.style.display = 'block';
+
+    setTimeout(() => {
+      const msg = encodeURIComponent(
+        `Olá! Acabei de solicitar um orçamento pelo site DroneWash Pro.\n\n` +
+        `Nome: ${payload.nome}\nEndereço: ${payload.endereco}\nServiço: ${payload.servico}\nMetragem: ${payload.metragem || 'não informada'}`
+      );
+      window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+    }, 1800);
+  });
+</script>
+</body>
+</html>
